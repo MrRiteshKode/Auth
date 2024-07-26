@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %} 
+{% load static %}
+{% load enhance %}
+<!-- Carousel  -->
+<!-- <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{% static 'images/new1.jpg' %}" class="d-block w-100" alt="Image 1" width="100%" height="450px">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{% static 'images/2.jpg' %}" class="d-block w-100" alt="Image 2" height=" 480px">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
+
+  <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-3">
+      <h1 class="display-5 fw-bold">Authentication App</h1>
+      {% if user.is_authenticated %}
+      
+      <p class="col-md-8 fs-4">Welcome <b>{{ user|enhance:"0" }}</b>. Also share you expericence about this site, Fun do.</p>
+      <a class="btn btn-primary btn-lg my-2" href="/profile">View Profile</a>
+      <a class="btn btn-primary btn-lg my-2" href="/about">View About</a>
+      {%else%}
+      <p class="col-md-8 fs-4">Make your account and login in. Also share you expericence about this site, Fun do.</p>
+      <a class="btn btn-primary btn-lg" href="/login">Login</a>
+      {%endif%}
+    </div>
+  </div>
+
+{% endblock body %}

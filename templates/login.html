@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+{% block body %} 
+
+<div class="container" style="margin-top: 4rem;">
+    <h4>Login in your account</h4>
+
+</div>
+<div class="container mt-3">
+    <form class="my-4" action="{% url 'login' %}" method="post">{% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputName1" class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" id="exampleInputName1" aria-describedby="nameHelp" maxlength="30" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" maxlength="30" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+</div>
+
+{% endblock body %}

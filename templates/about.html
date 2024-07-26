@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} About {% endblock title %}
+{% block body %} 
+
+<h2 class="container text-center my-2 mb-3">About</h2>
+
+<div class="container my-2">
+    <form method="post" action="{% url 'about'%}"> {% csrf_token %}
+        {{form.as_p}}
+        <!-- <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+        <input type="text" name="fullName" class="form-control" id="exampleFormControlInput1" placeholder="Your Full Name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">About Yourself</label>
+        <textarea class="form-control" name="about" id="exampleFormControlTextarea1" rows="6"></textarea>
+      </div> -->
+      <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+</div>
+
+{% endblock body %}

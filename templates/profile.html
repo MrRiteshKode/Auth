@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock title %}
+{% block body %} 
+{% load humanize %}
+
+<div class="conatiner">
+    <div class="py-5 text-center bg-secondary text-white">
+    <h1 class="mb-4">Upload Image</h1>
+    <div class="container">
+        <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                <div class="mb-3">
+                    <input class="form-control" name="image" type="file" accept="image/*" id="formFile">
+                  </div>            
+            <input type="submit" name="" class="btn btn-danger">
+        </form>
+    </div>
+</div>
+</div>
+
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for img in all_imgs %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="{{img.photo.url}}" class="card-img-top" style="background-size: contain;" alt="...">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" onclick="populateImg('{{img.photo.url}}')" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>
+                    <form action="{% url 'HandleImg' %}" method="post">{% csrf_token %}
+                      <input type="hidden" name="image" value="{{img.photo}}">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </form>
+                  </div>
+                  <small class="text-body-secondary">{{img.date|naturaltime}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+
+{% endblock body %}

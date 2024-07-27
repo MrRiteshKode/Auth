@@ -6,8 +6,7 @@ from django.contrib import messages
 from django.views import View
 from gallery.forms import AboutForm
 from gallery.models import About
-from django.contrib.auth.models import User 
-from gallery.models import Image
+from gallery.models import Image,User
 
 def home(request):
     allUsers = User.objects.all()

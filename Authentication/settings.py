@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'gallery',
 ]
 
+AUTH_USER_MODEL = 'gallery.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
